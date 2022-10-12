@@ -12,7 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Nonoco\\Base\\": "src/"
+            "Nonoco\\Base\\": "src"
         }
     },
     "extra": {

@@ -18,7 +18,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Nonoco\\Base\\BaseServiceProvider"
+                "nonoco\\base\\BaseServiceProvider"
             ]
         }
     },

@@ -32,11 +32,20 @@ class Install extends Command
             return;
         }
 
+        $this->copyAssetFiles();
         $this->copyBladeFiles();
 
         $this->info("-------------------" . PHP_EOL);
         $this->info(" Install Completed " . PHP_EOL);
         $this->info("-------------------" . PHP_EOL);
+    }
+
+    private function copyAssetFiles()
+    {
+        $sourceAssetPath = __DIR__ . '/../Assets/assets';
+        $destinationAssetPath = public_path('assets');
+        File::copyDirectory($sourceAssetPath, $destinationAssetPath);
+        $this->info('All web assets copied to ' . $destinationAssetPath);
     }
 
     /**

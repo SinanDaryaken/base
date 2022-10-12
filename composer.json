@@ -4,17 +4,17 @@
     "license": "MIT",
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "autoload": {
-        "psr-4": {
-            "Nonoco\\Base\\": "src"
-        }
-    },
     "authors": [
         {
             "name": "sinan",
             "email": "d.sinan.k@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Nonoco\\Base\\": "src"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [

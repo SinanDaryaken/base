@@ -42,7 +42,7 @@ class Install extends Command
 
     private function copyAssetFiles()
     {
-        $sourceAssetPath = __DIR__ . '/../Assets/assets';
+        $sourceAssetPath = __DIR__ . '/../Assets';
         $destinationAssetPath = public_path('assets');
         File::copyDirectory($sourceAssetPath, $destinationAssetPath);
         $this->info('All web assets copied to ' . $destinationAssetPath);

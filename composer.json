@@ -28,5 +28,7 @@
         "apcu-autoloader": true,
         "optimize-autoloader": true
     },
-    "require": {}
+    "require": {
+        "nonoco/base": "dev-master",
+    }
 }

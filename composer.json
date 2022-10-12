@@ -27,5 +27,5 @@
         "classmap-authoritative": true,
         "apcu-autoloader": true,
         "optimize-autoloader": true
-    },
+    }
 }

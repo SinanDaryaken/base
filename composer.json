@@ -28,13 +28,5 @@
         "apcu-autoloader": true,
         "optimize-autoloader": true
     },
-    "require": {
-        "nonoco/base": "dev-main"
-    },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "git@github.com:SinanDaryaken/base.git"
-        }
-    ]
+    "require": {}
 }

@@ -30,5 +30,11 @@
     },
     "require": {
         "nonoco/base": "dev-master",
-    }
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:SinanDaryaken/base.git"
+        }
+    ]
 }

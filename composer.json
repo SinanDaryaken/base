@@ -29,7 +29,7 @@
         "optimize-autoloader": true
     },
     "require": {
-        "nonoco/base": "dev-master",
+        "nonoco/base": "dev-main"
     },
     "repositories": [
         {

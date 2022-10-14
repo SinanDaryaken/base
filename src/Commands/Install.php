@@ -32,17 +32,17 @@ class Install extends Command
 //            return;
 //        }
 
-        $this->copyAssetFiles();
-        $this->copyBladeFiles();
-        $this->copyMigrationFiles();
-        $this->copySeederFile();
-        $this->copyModelFile();
-        $this->copyTraitFile();
-        $this->copyRepositoryFile();
-        $this->copyInterfaceFile();
-        $this->copyControllerFile();
-        $this->copyRequestFile();
-        $this->copyRouteFile();
+//        $this->copyAssetFiles();
+//        $this->copyBladeFiles();
+//        $this->copyMigrationFiles();
+//        $this->copySeederFile();
+//        $this->copyModelFile();
+//        $this->copyTraitFile();
+//        $this->copyRepositoryFile();
+//        $this->copyInterfaceFile();
+//        $this->copyControllerFile();
+//        $this->copyRequestFile();
+//        $this->copyRouteFile();
         $this->copyConfigAuthFile();
         $this->copyMiddlewareFile();
 
@@ -189,7 +189,7 @@ class Install extends Command
         $this->info("auth config file has been removed");
 
         $sourceConfigAuthPath = __DIR__ . '/../Config';
-        $destinationConfigAuthPath = base_path('config/auth.php');
+        $destinationConfigAuthPath = base_path('config');
         File::copyDirectory($sourceConfigAuthPath, $destinationConfigAuthPath);
         $this->info('auth file copied to ' . $destinationConfigAuthPath);
     }

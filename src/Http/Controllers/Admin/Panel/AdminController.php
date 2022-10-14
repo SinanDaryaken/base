@@ -1,14 +1,14 @@
 <?php
 
-namespace Nonoco\Base\Http\Controllers\Admin\Panel;
+namespace App\Http\Controllers\Admin\Panel;
 
 use Illuminate\Http\Request;
-use Nonoco\Base\Http\Controllers\Controller;
-use Nonoco\Base\Http\Requests\Admin\Admin\StoreRequest;
-use Nonoco\Base\Http\Requests\Admin\Admin\UpdateRequest;
-use Nonoco\Base\Models\Admin;
-use Nonoco\Base\Repositories\AdminRepository;
-use Nonoco\Base\Repositories\RoleRepository;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Admin\StoreRequest;
+use App\Http\Requests\Admin\Admin\UpdateRequest;
+use App\Models\Admin;
+use App\Repositories\AdminRepository;
+use App\Repositories\RoleRepository;
 
 class AdminController extends Controller
 {

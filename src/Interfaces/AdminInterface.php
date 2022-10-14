@@ -1,8 +1,8 @@
 <?php
 
-namespace Nonoco\Base\Interfaces;
+namespace App\Interfaces;
 
-use Nonoco\Base\Models\Admin;
+use App\Models\Admin;
 use Illuminate\Contracts\Pagination\Paginator;
 
 interface AdminInterface extends BaseInterface

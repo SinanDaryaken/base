@@ -1,6 +1,6 @@
 <?php
 
-namespace Nonoco\Base\Interfaces;
+namespace App\Interfaces;
 
 use Illuminate\Database\Eloquent\Collection as DatabaseCollection;
 use Illuminate\Database\Eloquent\Model;

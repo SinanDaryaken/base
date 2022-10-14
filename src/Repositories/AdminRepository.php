@@ -1,9 +1,9 @@
 <?php
 
-namespace Nonoco\Base\Repositories;
+namespace App\Repositories;
 
-use Nonoco\Base\Interfaces\AdminInterface;
-use Nonoco\Base\Models\Admin;
+use App\Interfaces\AdminInterface;
+use App\Models\Admin;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Collection as DatabaseCollection;
 

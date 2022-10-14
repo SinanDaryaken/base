@@ -1,8 +1,8 @@
 <?php
 
-namespace Nonoco\Base\Traits;
+namespace App\Traits;
 
-use Nonoco\Base\Models\AdminActivityLog;
+use App\Models\AdminActivityLog;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;

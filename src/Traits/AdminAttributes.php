@@ -1,6 +1,6 @@
 <?php
 
-namespace Nonoco\Base\Traits;
+namespace App\Traits;
 
 use Illuminate\Database\Eloquent\Casts\Attribute;
 

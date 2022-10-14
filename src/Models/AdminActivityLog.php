@@ -1,14 +1,14 @@
 <?php
 
-namespace Nonoco\Base\Models;
+namespace App\Models;
 
-use Nonoco\Base\Traits\AutoIncrement;
+use App\Traits\AutoIncrement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class AdminActivityLog
- * @package Nonoco\Base\Models
+ * @package App\Models
  * @property-read string $id
  * @property string $admin_id
  * @property string $model

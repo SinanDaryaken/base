@@ -1,18 +1,18 @@
 <?php
 
-namespace Nonoco\Base\Models;
+namespace App\Models;
 
-use Nonoco\Base\Traits\AdminActivity;
+use App\Traits\AdminActivity;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Nonoco\Base\Traits\AdminAttributes;
-use Nonoco\Base\Traits\AutoIncrement;
+use App\Traits\AdminAttributes;
+use App\Traits\AutoIncrement;
 use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 /**
  * Class Admin
- * @package Nonoco\Base\Models
+ * @package App\Models
  * @property-read string $id
  * @property string $first_name
  * @property string $last_name

@@ -1,6 +1,6 @@
 <?php
 
-namespace Nonoco\Base\Http\Requests\Admin\Admin;
+namespace App\Http\Requests\Admin\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;

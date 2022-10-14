@@ -59,11 +59,11 @@ class Install extends Command
             $this->info("-------------------" . PHP_EOL);
             $this->info(" Install Completed " . PHP_EOL);
             $this->info("-------------------" . PHP_EOL);
+        }else{
+            $this->info("-------------------" . PHP_EOL);
+            $this->info(" Starter Kit are already Installed " . PHP_EOL);
+            $this->info("-------------------" . PHP_EOL);
         }
-
-        $this->info("-------------------" . PHP_EOL);
-        $this->info(" Starter Kit are already Installed " . PHP_EOL);
-        $this->info("-------------------" . PHP_EOL);
     }
 
     private function alreadyInstalled(): bool

@@ -166,6 +166,7 @@ class Install extends Command
      */
     private function copyRouteFile(): void
     {
+        // TODO:  change place of the cleaning operation
         $file = base_path('routes/web.php');
         file_put_contents($file, '<?php');
         $this->info("Route file has been cleaned");
@@ -173,6 +174,50 @@ class Install extends Command
         $sourceRoutePath = __DIR__ . '/../Routes/Admin/Panel';
         $destinationRoutePath = base_path('routes/admin/panel/web.php');
         File::copyDirectory($sourceRoutePath, $destinationRoutePath);
-        $this->info('All requests copied to ' . $destinationRoutePath);
+        $this->info('All routes copied to ' . $destinationRoutePath);
+    }
+
+    /**
+     * @return void
+     */
+    private function copyConfigAuthFile(): void
+    {
+        // TODO:  change place of the remove operation
+        @unlink(base_path('config/auth.php'));
+        $this->info("auth config file has been removed");
+
+        $sourceConfigAuthPath = __DIR__ . '/../Config';
+        $destinationConfigAuthPath = base_path('config/auth.php');
+        File::copyDirectory($sourceConfigAuthPath, $destinationConfigAuthPath);
+        $this->info('auth file copied to ' . $destinationConfigAuthPath);
+    }
+
+    /**
+     * @return void
+     */
+    private function modifiedRouteProviderFile(): void
+    {
+    }
+
+    /**
+     * @return void
+     */
+    private function modifiedAppServiceProviderFile(): void
+    {
+    }
+
+    /**
+     * @return void
+     */
+    private function modifiedKernelFile(): void
+    {
+        // TODO:  change place of the cleaning operation
+        @unlink(app_path('Http/Kernel.php'));
+        $this->info("Kernel file has been removed");
+
+        $sourceKernelPath = __DIR__ . '/../Http/Kernel.php';
+        $destinationKernelPath = app_path('Http');
+        File::copyDirectory($sourceKernelPath, $destinationKernelPath);
+        $this->info('Kernel copied to ' . $destinationKernelPath);
     }
 }

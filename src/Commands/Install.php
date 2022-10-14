@@ -43,6 +43,7 @@ class Install extends Command
         $this->copyControllerFile();
         $this->copyRequestFile();
         $this->copyRouteFile();
+        $this->copyKernelFile();
 
         $this->info("-------------------" . PHP_EOL);
         $this->info(" Install Completed " . PHP_EOL);
@@ -209,7 +210,7 @@ class Install extends Command
     /**
      * @return void
      */
-    private function modifiedKernelFile(): void
+    private function copyKernelFile(): void
     {
         // TODO:  change place of the cleaning operation
         @unlink(app_path('Http/Kernel.php'));

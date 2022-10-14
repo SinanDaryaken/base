@@ -1,43 +1,39 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Panel;
+namespace Nonoco\Base\Http\Controllers\Admin\Panel;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Admin\StoreRequest;
-use App\Http\Requests\Admin\Admin\UpdateRequest;
-use App\Models\Admin;
-use App\Repositories\AdminRepository;
-use App\Repositories\RoleRepository;
 use Illuminate\Http\Request;
+use Nonoco\Base\Http\Controllers\Controller;
+use Nonoco\Base\Http\Requests\Admin\Admin\StoreRequest;
+use Nonoco\Base\Http\Requests\Admin\Admin\UpdateRequest;
+use Nonoco\Base\Models\Admin;
+use Nonoco\Base\Repositories\AdminRepository;
+use Nonoco\Base\Repositories\RoleRepository;
 
 class AdminController extends Controller
 {
     /**
-     * AdminController constructor
-     *
      * @param AdminRepository $adminRepository
      */
     public function __construct(
         private AdminRepository $adminRepository,
-        private RoleRepository  $roleRepository
     )
     {
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return mixed
      */
-    public function index()
+    public function index(): mixed
     {
-        canUser('admins.index');
         $admins = $this->adminRepository->getByFiltered();
         return view('admin.pages.panel.admin.index', compact('admins'));
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return mixed
      */
-    public function create()
+    public function create(): mixed
     {
         $roles = $this->roleRepository->getAll();
         return view('admin.pages.panel.admin.create', compact('roles'));
@@ -45,9 +41,9 @@ class AdminController extends Controller
 
     /**
      * @param StoreRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return mixed
      */
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request): mixed
     {
         $data = $request->except('_token');
         $roles = $request->get('roles');
@@ -58,18 +54,9 @@ class AdminController extends Controller
 
     /**
      * @param $id
-     * @return void
+     * @return mixed
      */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * @param $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
-     */
-    public function edit($id)
+    public function edit($id): mixed
     {
         $admin = $this->adminRepository->getById($id);
         $roles = $this->roleRepository->getAll();
@@ -81,9 +68,9 @@ class AdminController extends Controller
     /**
      * @param UpdateRequest $request
      * @param Admin $admin
-     * @return \Illuminate\Http\RedirectResponse
+     * @return mixed
      */
-    public function update(UpdateRequest $request, Admin $admin)
+    public function update(UpdateRequest $request, Admin $admin): mixed
     {
         $data = $request->except('_token');
         $roles = $request->get('roles');
@@ -94,9 +81,9 @@ class AdminController extends Controller
 
     /**
      * @param Admin $admin
-     * @return \Illuminate\Http\RedirectResponse
+     * @return mixed
      */
-    public function destroy(Admin $admin)
+    public function destroy(Admin $admin): mixed
     {
         $this->roleRepository->detach($admin);
         $this->adminRepository->destroy($admin);
@@ -105,9 +92,9 @@ class AdminController extends Controller
 
     /**
      * @param Request $request
-     * @return string
+     * @return mixed
      */
-    public function filtered(Request $request)
+    public function filtered(Request $request): mixed
     {
         $search = $request->get('search');
         $admins = $this->adminRepository->getByFiltered($search);

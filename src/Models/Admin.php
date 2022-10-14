@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\AdminAttributes;
 use App\Traits\AutoIncrement;
-use Illuminate\Support\Carbon;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 /**

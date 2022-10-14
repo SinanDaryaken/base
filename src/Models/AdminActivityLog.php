@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\AutoIncrement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Carbon\Carbon;
 
 /**
  * Class AdminActivityLog

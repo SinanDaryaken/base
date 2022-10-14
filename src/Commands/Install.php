@@ -24,9 +24,9 @@ class Install extends Command
     /**
      * Execute the console command.
      *
-     * @return int
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         if(! $this->confirm('Are you sure?')) {
             return;
@@ -34,13 +34,24 @@ class Install extends Command
 
         $this->copyAssetFiles();
         $this->copyBladeFiles();
+        //copyMigrations
+        //copySeeder
+        //Models
+        //Traits
+        //Repository
+        //Interface
+        //Controller
+        //Request
 
         $this->info("-------------------" . PHP_EOL);
         $this->info(" Install Completed " . PHP_EOL);
         $this->info("-------------------" . PHP_EOL);
     }
 
-    private function copyAssetFiles()
+    /**
+     * @return void
+     */
+    private function copyAssetFiles(): void
     {
         $sourceAssetPath = __DIR__ . '/../Assets';
         $destinationAssetPath = public_path('assets');
@@ -51,12 +62,23 @@ class Install extends Command
     /**
      * @return void
      */
-    private function copyBladeFiles()
+    private function copyBladeFiles(): void
     {
         @unlink(resource_path('views/welcome.blade.php'));
         $sourceViewPath = __DIR__ . '/../Resources/views';
         $destinationViewPath = resource_path('views');
         File::copyDirectory($sourceViewPath, $destinationViewPath);
         $this->info('All web blades copied to ' . $destinationViewPath);
+    }
+
+    /**
+     * @return void
+     */
+    private function copyMigrationFiles()
+    {
+        $sourceMigrationPath = __DIR__ . '/../Database/Postgres/Migrations';
+        $destinationMigrationPath = database_path('migrations');
+        File::copyDirectory($sourceMigrationPath, $destinationMigrationPath);
+        $this->info('All migration copied to ' . $destinationMigrationPath);
     }
 }

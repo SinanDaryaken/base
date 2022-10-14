@@ -199,8 +199,8 @@ class Install extends Command
      */
     private function copyMiddlewareFile(): void
     {
-        $sourceMiddlewarePath = __DIR__ . '/../Http/Controllers/Middleware/';
-        $destinationMiddlewarePath = app_path('Http/Controllers/Middleware');
+        $sourceMiddlewarePath = __DIR__ . '/../Http/Middleware/';
+        $destinationMiddlewarePath = app_path('Http/Middleware');
         File::copyDirectory($sourceMiddlewarePath, $destinationMiddlewarePath);
         $this->info('All middleware copied to ' . $destinationMiddlewarePath);
     }

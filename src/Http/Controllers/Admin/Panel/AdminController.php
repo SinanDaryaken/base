@@ -8,7 +8,6 @@ use App\Http\Requests\Admin\Admin\StoreRequest;
 use App\Http\Requests\Admin\Admin\UpdateRequest;
 use App\Models\Admin;
 use App\Repositories\AdminRepository;
-use App\Repositories\RoleRepository;
 
 class AdminController extends Controller
 {

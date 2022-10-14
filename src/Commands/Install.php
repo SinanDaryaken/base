@@ -37,9 +37,7 @@ class Install extends Command
         $this->removeConfigAuthFile();
         $this->info("-------------------" . PHP_EOL);
         $this->info(" Removing Completed " . PHP_EOL);
-        $this->info("-------------------" . PHP_EOL);
-
-        $this->info("-------------------" . PHP_EOL);
+        $this->info("*******************" . PHP_EOL);
         $this->info(" Installation Start " . PHP_EOL);
         $this->info("-------------------" . PHP_EOL);
 
@@ -206,7 +204,6 @@ class Install extends Command
         File::copyDirectory($sourceMiddlewarePath, $destinationMiddlewarePath);
         $this->info('All middleware copied to ' . $destinationMiddlewarePath);
     }
-
 
     /**
      * @return void

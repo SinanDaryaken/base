@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Database\Postgres\Seeders;
+namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;

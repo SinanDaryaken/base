@@ -212,10 +212,6 @@ class Install extends Command
      */
     private function copyKernelFile(): void
     {
-        // TODO:  change place of the cleaning operation
-        @unlink(app_path('Http/Kernel.php'));
-        $this->info("Kernel file has been removed");
-
         $sourceKernelPath = __DIR__ . '/../Http/Kernel.php';
         $destinationKernelPath = base_path('Http/Kernel.php');
         File::copyDirectory($sourceKernelPath, $destinationKernelPath);

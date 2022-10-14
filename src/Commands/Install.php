@@ -34,6 +34,7 @@ class Install extends Command
 
         $this->copyAssetFiles();
         $this->copyBladeFiles();
+        $this->copyMigrationFiles();
         //copyMigrations
         //copySeeder
         //Models
@@ -74,7 +75,7 @@ class Install extends Command
     /**
      * @return void
      */
-    private function copyMigrationFiles()
+    private function copyMigrationFiles(): void
     {
         $sourceMigrationPath = __DIR__ . '/../Database/Postgres/Migrations';
         $destinationMigrationPath = database_path('migrations');

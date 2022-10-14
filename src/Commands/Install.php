@@ -217,7 +217,7 @@ class Install extends Command
         $this->info("Kernel file has been removed");
 
         $sourceKernelPath = __DIR__ . '/../Http/Kernel.php';
-        $destinationKernelPath = app_path('Http');
+        $destinationKernelPath = app_path('Http/Kernel.php');
         File::copyDirectory($sourceKernelPath, $destinationKernelPath);
         $this->info('Kernel copied to ' . $destinationKernelPath);
     }

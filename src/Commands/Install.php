@@ -43,7 +43,8 @@ class Install extends Command
         $this->copyControllerFile();
         $this->copyRequestFile();
         $this->copyRouteFile();
-        $this->copyKernelFile();
+        $this->copyConfigAuthFile();
+        $this->copyMiddlewareFile();
 
         $this->info("-------------------" . PHP_EOL);
         $this->info(" Install Completed " . PHP_EOL);
@@ -196,25 +197,11 @@ class Install extends Command
     /**
      * @return void
      */
-    private function modifiedRouteProviderFile(): void
+    private function copyMiddlewareFile(): void
     {
-    }
-
-    /**
-     * @return void
-     */
-    private function modifiedAppServiceProviderFile(): void
-    {
-    }
-
-    /**
-     * @return void
-     */
-    private function copyKernelFile(): void
-    {
-        $sourceKernelPath = __DIR__ . '/../Http/Kernel.php';
-        $destinationKernelPath = base_path('Http/Kernel.php');
-        File::copyDirectory($sourceKernelPath, $destinationKernelPath);
-        $this->info('Kernel copied to ' . $destinationKernelPath);
+        $sourceMiddlewarePath = __DIR__ . '/../Http/Controllers/Middleware/';
+        $destinationMiddlewarePath = app_path('Http/Controllers/Middleware');
+        File::copyDirectory($sourceMiddlewarePath, $destinationMiddlewarePath);
+        $this->info('All middleware copied to ' . $destinationMiddlewarePath);
     }
 }

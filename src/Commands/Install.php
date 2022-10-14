@@ -32,17 +32,28 @@ class Install extends Command
 //            return;
 //        }
 
-//        $this->copyAssetFiles();
-//        $this->copyBladeFiles();
-//        $this->copyMigrationFiles();
-//        $this->copySeederFile();
-//        $this->copyModelFile();
-//        $this->copyTraitFile();
-//        $this->copyRepositoryFile();
-//        $this->copyInterfaceFile();
-//        $this->copyControllerFile();
-//        $this->copyRequestFile();
-//        $this->copyRouteFile();
+        $this->info(" Removing Base Files Completed " . PHP_EOL);
+        $this->cleanRouteFile();
+        $this->removeConfigAuthFile();
+        $this->info("-------------------" . PHP_EOL);
+        $this->info(" Removing Completed " . PHP_EOL);
+        $this->info("-------------------" . PHP_EOL);
+
+        $this->info("-------------------" . PHP_EOL);
+        $this->info(" Installation Start " . PHP_EOL);
+        $this->info("-------------------" . PHP_EOL);
+
+        $this->copyAssetFiles();
+        $this->copyBladeFiles();
+        $this->copyMigrationFiles();
+        $this->copySeederFile();
+        $this->copyModelFile();
+        $this->copyTraitFile();
+        $this->copyRepositoryFile();
+        $this->copyInterfaceFile();
+        $this->copyControllerFile();
+        $this->copyRequestFile();
+        $this->copyRouteFile();
         $this->copyConfigAuthFile();
         $this->copyMiddlewareFile();
 
@@ -168,11 +179,6 @@ class Install extends Command
      */
     private function copyRouteFile(): void
     {
-        // TODO:  change place of the cleaning operation
-        $file = base_path('routes/web.php');
-        file_put_contents($file, '<?php');
-        $this->info("Route file has been cleaned");
-
         $sourceRoutePath = __DIR__ . '/../Routes/Admin/Panel';
         $destinationRoutePath = base_path('routes/admin/panel/web.php');
         File::copyDirectory($sourceRoutePath, $destinationRoutePath);
@@ -184,10 +190,6 @@ class Install extends Command
      */
     private function copyConfigAuthFile(): void
     {
-        // TODO:  change place of the remove operation
-        @unlink(base_path('config/auth.php'));
-        $this->info("auth config file has been removed");
-
         $sourceConfigAuthPath = __DIR__ . '/../Config';
         $destinationConfigAuthPath = base_path('config');
         File::copyDirectory($sourceConfigAuthPath, $destinationConfigAuthPath);
@@ -203,5 +205,25 @@ class Install extends Command
         $destinationMiddlewarePath = app_path('Http/Middleware');
         File::copyDirectory($sourceMiddlewarePath, $destinationMiddlewarePath);
         $this->info('All middleware copied to ' . $destinationMiddlewarePath);
+    }
+
+
+    /**
+     * @return void
+     */
+    private function removeConfigAuthFile(): void
+    {
+        @unlink(base_path('config/auth.php'));
+        $this->info("auth config file has been removed");
+    }
+
+    /**
+     * @return void
+     */
+    private function cleanRouteFile(): void
+    {
+        $file = base_path('routes/web.php');
+        file_put_contents($file, '<?php');
+        $this->info("Route file has been cleaned");
     }
 }

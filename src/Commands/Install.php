@@ -28,36 +28,47 @@ class Install extends Command
      */
     public function handle(): void
     {
-//        if(! $this->confirm('Are you sure?')) {
-//            return;
-//        }
+        if(! $this->confirm('Are you sure?')) {
+            return;
+        }
+        
+        if(!$this->alreadyInstalled()){
+            $this->info(" Removing Base Files Completed " . PHP_EOL);
+            $this->cleanRouteFile();
+            $this->removeConfigAuthFile();
+            $this->info("-------------------" . PHP_EOL);
+            $this->info(" Removing Completed " . PHP_EOL);
+            $this->info("*******************" . PHP_EOL);
+            $this->info(" Installation Start " . PHP_EOL);
+            $this->info("-------------------" . PHP_EOL);
 
-        $this->info(" Removing Base Files Completed " . PHP_EOL);
-        $this->cleanRouteFile();
-        $this->removeConfigAuthFile();
-        $this->info("-------------------" . PHP_EOL);
-        $this->info(" Removing Completed " . PHP_EOL);
-        $this->info("*******************" . PHP_EOL);
-        $this->info(" Installation Start " . PHP_EOL);
-        $this->info("-------------------" . PHP_EOL);
+            $this->copyAssetFiles();
+            $this->copyBladeFiles();
+            $this->copyMigrationFiles();
+            $this->copySeederFile();
+            $this->copyModelFile();
+            $this->copyTraitFile();
+            $this->copyRepositoryFile();
+            $this->copyInterfaceFile();
+            $this->copyControllerFile();
+            $this->copyRequestFile();
+            $this->copyRouteFile();
+            $this->copyConfigAuthFile();
+            $this->copyMiddlewareFile();
 
-        $this->copyAssetFiles();
-        $this->copyBladeFiles();
-        $this->copyMigrationFiles();
-        $this->copySeederFile();
-        $this->copyModelFile();
-        $this->copyTraitFile();
-        $this->copyRepositoryFile();
-        $this->copyInterfaceFile();
-        $this->copyControllerFile();
-        $this->copyRequestFile();
-        $this->copyRouteFile();
-        $this->copyConfigAuthFile();
-        $this->copyMiddlewareFile();
+            $this->info("-------------------" . PHP_EOL);
+            $this->info(" Install Completed " . PHP_EOL);
+            $this->info("-------------------" . PHP_EOL);
+        }
 
         $this->info("-------------------" . PHP_EOL);
-        $this->info(" Install Completed " . PHP_EOL);
+        $this->info(" Already Installed " . PHP_EOL);
         $this->info("-------------------" . PHP_EOL);
+    }
+
+    private function alreadyInstalled(): bool
+    {
+        return file_exists(base_path('routes/admin/panel/web.php'));
     }
 
     /**

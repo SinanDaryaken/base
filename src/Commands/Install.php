@@ -42,6 +42,7 @@ class Install extends Command
         $this->copyInterfaceFile();
         $this->copyControllerFile();
         $this->copyRequestFile();
+        $this->copyRouteFile();
 
         $this->info("-------------------" . PHP_EOL);
         $this->info(" Install Completed " . PHP_EOL);
@@ -87,6 +88,7 @@ class Install extends Command
      */
     private function copySeederFile(): void
     {
+        @unlink(database_path('seeders/DatabaseSeeder.php'));
         $sourceSeederPath = __DIR__ . '/../Database/Postgres/Seeders';
         $destinationSeederPath = database_path('seeders');
         File::copyDirectory($sourceSeederPath, $destinationSeederPath);
@@ -157,5 +159,20 @@ class Install extends Command
         $destinationRequestPath = app_path('Http/Requests/Admin');
         File::copyDirectory($sourceRequestPath, $destinationRequestPath);
         $this->info('All requests copied to ' . $destinationRequestPath);
+    }
+
+    /**
+     * @return void
+     */
+    private function copyRouteFile(): void
+    {
+        $file = base_path('routes/web.php');
+        file_put_contents($file, '<?php');
+        $this->info("Route file has been cleaned");
+
+        $sourceRoutePath = __DIR__ . '/../Routes/Admin/Panel';
+        $destinationRoutePath = base_path('routes/admin/panel/web.php');
+        File::copyDirectory($sourceRoutePath, $destinationRoutePath);
+        $this->info('All requests copied to ' . $destinationRoutePath);
     }
 }
